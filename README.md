@@ -23,6 +23,8 @@ This project is a secure, scalable web application designed as part of the Enter
 1. **Frontend**: Served by an Apache web server, delivering an asynchronous HTML + JavaScript client over HTTPS.
 2. **Backend**: Built with Spring Boot, providing RESTful API endpoints protected with TLS and JWT-based authentication.
 3. **Database**: Built with MySQL in a Docker Container.
+
+   
 The application is deployed on AWS using EC2 instances, with a focus on security best practices such as TLS encryption, secure password storage, and secure communication between components.
 
 ---
@@ -35,7 +37,38 @@ The application is deployed on AWS using EC2 instances, with a focus on security
 - **AWS Deployment**: Secure and scalable deployment on AWS EC2 instances.
 
 ---
+## **Installing** ⚙️
 
+1. Download the repository from GitHub in a .zip or clone it to your local machine using Git.
+    
+    ```
+    git clone https://github.com/AnaDuranB/Taller-06-AREP.git
+    ```
+    
+2. For the backend: navigate to the project directory. If you need the front, copy the files stored in this repository from frontend to the respective path in Apache `/var/www/html`
+    
+    ```
+    cd Taller-06-AREP/backend
+    ```
+    
+3. Build the project and package it:
+    
+    `mvn clean install`, `mvn clean package`
+
+4. Go top the web:
+
+    ```
+    https://localhost:8443/
+    ```
+
+⚠️ Important: This backend project requires authentication. If you run the content in the `backend` folder without following the necessary steps (such as running the frontend), it will not work. Additionally, you must deploy the database first and associate it in the `application.properties` file.
+
+The `application.properties` file should look something like this:
+
+![image](https://github.com/user-attachments/assets/d0d5bba1-3f67-469e-9b08-e0c7d1b9db9d)
+
+
+---
 ## Architecture
 
 The application architecture consists of the following components:
@@ -216,14 +249,14 @@ The application architecture consists of the following components:
     - **Frontend Instance**: Install Apache and configure it to serve the frontend.
     - **Backend Instance**: Install Java and deploy the Spring Boot application.
     - **Database Instance:** Run a docker container that storage the database.
-2. Assign Elastic IPs to both instances.
+2. Assign Elastic IPs to the instances.
 
-![image](https://github.com/user-attachments/assets/388e094b-2e4f-44dc-a2ac-b47d6f586cbc)
+    ![image](https://github.com/user-attachments/assets/ad0cf273-7ea2-4f44-aab6-9b9876e3b687)
 
 
-1. Update your domain (from Duck DNS) with the Elastic IP of the frontend and backend instances.
+3. Update your domain (from Duck DNS) with the Elastic IP of the frontend and backend instances.
 
-![image](https://github.com/user-attachments/assets/214f19fc-7496-409d-98de-658007d8f32e)
+    ![image](https://github.com/user-attachments/assets/214f19fc-7496-409d-98de-658007d8f32e)
 
 ### Step 2: Configure Apache (Frontend)
 
@@ -360,7 +393,7 @@ server.port=8443
 
 ![image](https://github.com/user-attachments/assets/6bfdc4e1-6447-4052-84bc-130798e5c4fa)
 
-⚠️ Password correctly storage as hash:
+⚠️ Password correctly stored as a hash:
 
 
 ![image](https://github.com/user-attachments/assets/b459c034-e18a-4258-839b-0b6763f4c9af)
@@ -402,7 +435,8 @@ mvn test
 
 These tests verify the server's correct response to different requests.
 
-![image.png](image%2013.png)
+![image](https://github.com/user-attachments/assets/eb2bda56-a0d8-4785-a547-9a8d7e0a43f6)
+
 
 ### **Built With**
 
