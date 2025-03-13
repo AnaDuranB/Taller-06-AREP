@@ -87,6 +87,7 @@ The application architecture consists of the following components:
     - Passwords stored as hashes using BCrypt.
     - JWT tokens for secure authentication.
 
+
 ### Architecture Diagram
 
 ![taller6 (1) drawio](https://github.com/user-attachments/assets/12c090f4-b4a5-4fc1-86fb-49e1feecd792)
@@ -302,8 +303,15 @@ The application architecture consists of the following components:
     sudo systemctl restart httpd
     ```
 
-    
-    ![image](https://github.com/user-attachments/assets/4556d989-c62c-476c-a5c9-e6b922c14d3c)
+  
+   Digital certificate by Let's Encrypt:
+   
+
+   ![image](https://github.com/user-attachments/assets/16f02327-d25e-4485-8725-aaa79774c74a)
+
+
+   ![image](https://github.com/user-attachments/assets/5f834a44-67fd-4ca9-901c-8bd97c4aa3e1)
+
 
 
 ### Step 3: Deploy Spring Boot (Backend)
