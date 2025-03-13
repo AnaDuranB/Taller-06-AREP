@@ -1,0 +1,2 @@
+This content from "frontend" needs to be hosted in the /var/www/html path of the Apache Instance :)
+-- Ana Duran
