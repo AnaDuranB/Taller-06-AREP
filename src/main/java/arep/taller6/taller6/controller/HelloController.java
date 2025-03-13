@@ -9,7 +9,7 @@ import java.util.Map;
 @RestController
 @CrossOrigin(origins = "https://taller06arepfront.duckdns.org")
 public class HelloController {
-    @GetMapping("/")
+    @GetMapping("/hello")
     public Map<String, String> home() {
         return Map.of("mensaje", "Hola desde el backend :D");
     }

@@ -1,5 +1,7 @@
 package arep.taller6.taller6.service;
 
+import arep.taller6.taller6.model.User;
+import arep.taller6.taller6.repository.UserRepository;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -10,20 +12,21 @@ import java.util.Map;
 public class UserService {
 
     private final BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+    private final UserRepository userRepository;
 
-    private final Map<String, String> users = new HashMap<>();
-
-    public UserService() {
-        // usuario de prueba (admin:admin123)
-        users.put("admin", passwordEncoder.encode("admin123"));
+    public UserService(UserRepository userRepository) {
+        this.userRepository = userRepository;
     }
 
     public boolean authenticate(String username, String password) {
-        String hashedPassword = users.get(username);
-        return hashedPassword != null && passwordEncoder.matches(password, hashedPassword);
+        User user = userRepository.findByUsername(username).orElse(null);
+        return user != null && passwordEncoder.matches(password, user.getPassword());
     }
 
     public void registerUser(String username, String password) {
-        users.put(username, passwordEncoder.encode(password));
+        User user = new User();
+        user.setUsername(username);
+        user.setPassword(passwordEncoder.encode(password));
+        userRepository.save(user);
     }
 }
