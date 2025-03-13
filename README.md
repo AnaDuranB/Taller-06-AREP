@@ -437,6 +437,8 @@ These tests verify the server's correct response to different requests.
 
 ![image](https://github.com/user-attachments/assets/eb2bda56-a0d8-4785-a547-9a8d7e0a43f6)
 
+![image](https://github.com/user-attachments/assets/67e51ad3-1a7a-40cd-a42d-df0fd315d16b)
+
 
 ### **Built With**
 
